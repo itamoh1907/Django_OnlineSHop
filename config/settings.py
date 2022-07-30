@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from environs import Env
+
 env = Env()
 env.read_env()
 
@@ -141,8 +142,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT=587
+EMAIL_HOST_USER = "zardosht.mm@gmail.com"
+EMAIL_HOST_PASSWORD = "09171040476"
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
