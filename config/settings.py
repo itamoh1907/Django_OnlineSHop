@@ -28,7 +28,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','.herokuapp.com']
 
 # Application definition
 
@@ -40,13 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'crispy_forms',
-
+    # local apps
     'accounts',
     'pages',
+    'products.apps.ProductsConfig',  # khod django in tarze neveshtan ro pishnahad mideh
 
-    # all auth
-
+    # third party apps
+    'crispy_forms',
     'allauth',
     'allauth.account',
     # 'allauth.socialaccount',
@@ -145,7 +145,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT=587
+EMAIL_PORT = 587
 EMAIL_HOST_USER = "zardosht.mm@gmail.com"
 EMAIL_HOST_PASSWORD = "09171040476"
 # Internationalization
